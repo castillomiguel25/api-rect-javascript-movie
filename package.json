@@ -1,0 +1,19 @@
+{
+  "name": "api-rect-javascript-movie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/castillomiguel25/api-rect-javascript-movie.git"
+  },
+  "author": "castillomiguel25",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/castillomiguel25/api-rect-javascript-movie/issues"
+  },
+  "homepage": "https://github.com/castillomiguel25/api-rect-javascript-movie#readme"
+}
