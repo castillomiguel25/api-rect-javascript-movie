@@ -1,10 +1,19 @@
-async function getTrendingMoviesPreview() {
-    const res = await fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=' + API_KEY);
-    const data = await res.json();
+const api = axios.create({
+    baseURL: 'https://api.themoviedb.org/3/',
+    headers: {
+        'content-Type': 'aplication/json;charset=utf-8',
+        
+    },
+    params: {
+        'api_key': API_KEY,
+    },
+});
 
+async function getTrendingMoviesPreview() {
+    const { data } = await api('trending/movie/day');
     const movies = data.results
     movies.forEach(movie => {
-       const TrendingPreviewMoviesContainer =document.querySelector('#trendingPreview .trendingPreview-movieList')
+       const trendingMoviesPreviewList = document.querySelector('#trendingPreview .trendingPreview-movieList')
 
        const movieContainer = document.createElement('div');
        movieContainer.classList.add('movie-container');
@@ -15,7 +24,7 @@ async function getTrendingMoviesPreview() {
        movieImg.setAttribute('src', 'https://image.tmdb.org/t/p/w300' + movie.poster_path,);
 
        movieContainer.appendChild(movieImg);
-       TrendingPreviewMoviesContainer.appendChild(movieContainer)
+       trendingMoviesPreviewList.appendChild(movieContainer)
     });
 }
 
@@ -23,12 +32,12 @@ async function getTrendingMoviesPreview() {
 
 
 async function getCategoriesPreview() {
-    const res = await fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=' + API_KEY);
-    const data = await res.json();
+    const { data } = await api('genre/movie/list');
+    
 
     const categories = data.genres
     categories.forEach(category => {
-       const PreviewCategoriesContainer = document.querySelector
+       const categoriesPreviewList = document.querySelector
        ('#categoriesPreview .categoriesPreview-list')
 
        const categoryContainer = document.createElement('div');
@@ -41,9 +50,7 @@ async function getCategoriesPreview() {
 
        categoryTitle.appendChild(categoryTitleText);
        categoryContainer.appendChild(categoryTitle);
-       PreviewCategoriesContainer.appendChild(categoryContainer);
+       categoriesPreviewList.appendChild(categoryContainer);
     });
 }
 
-getTrendingMoviesPreview()
-getCategoriesPreview()
