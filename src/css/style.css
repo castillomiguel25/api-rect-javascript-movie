@@ -80,7 +80,7 @@ input::placeholder {
 }
 
 button {
-  background-color: var(--purple-dark-1);
+  background: linear-gradient(90deg, #2A0646, black, red);
   border: none;
   color: var(--purple-light-2);
   font-weight: var(--font-weight-text2);
@@ -344,7 +344,7 @@ button {
 
 /* Footer */
 footer {
-  background-color: var(--purple-medium-3);
+  background: linear-gradient(90deg, #2A0646, black, red);
   color: var(--purple-light-2);
   text-align: center;
   height: 48px;
